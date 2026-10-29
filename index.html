@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>เข้าสู่ระบบ | ระบบสำรวจข้อมูล สป.สธ.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+  <main class="container py-5" style="max-width: 480px;">
+    <div class="text-center mb-4">
+      <div class="hero-icon mb-3"><i class="bi bi-sun"></i></div>
+      <h1 class="h4 fw-bold text-success mb-1">ระบบสำรวจข้อมูล สป.สธ.</h1>
+      <div class="text-muted small">สำหรับหน่วยงานในสังกัดสำนักงานปลัดกระทรวงสาธารณสุข</div>
+    </div>
+
+    <div class="card p-4">
+      <ul class="nav nav-pills nav-justified mb-4" role="tablist">
+        <li class="nav-item"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#tabLogin" type="button">เข้าสู่ระบบ</button></li>
+        <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#tabRegister" type="button">สมัครสมาชิก</button></li>
+      </ul>
+
+      <div class="tab-content">
+        <!-- LOGIN -->
+        <form class="tab-pane fade show active" id="tabLogin">
+          <div class="mb-3">
+            <label class="form-label" for="loginEmail">อีเมล</label>
+            <input type="email" class="form-control" id="loginEmail" required autocomplete="email">
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="loginPassword">รหัสผ่าน</label>
+            <input type="password" class="form-control" id="loginPassword" required autocomplete="current-password">
+          </div>
+          <button class="btn btn-primary w-100 py-2" type="submit"><i class="bi bi-box-arrow-in-right me-2"></i>เข้าสู่ระบบ</button>
+          <div class="text-center mt-3">
+            <a href="#" id="linkForgot" class="small">ลืมรหัสผ่าน?</a>
+          </div>
+        </form>
+
+        <!-- REGISTER -->
+        <form class="tab-pane fade" id="tabRegister">
+          <div class="alert alert-info small">
+            <i class="bi bi-info-circle me-1"></i>
+            หลังสมัคร ต้องใช้ <b>รหัสหน่วยงาน 5 หลัก</b> และ <b>รหัสลงทะเบียน</b> ที่ได้รับจากส่วนกลาง เพื่อผูกบัญชีกับหน่วยงาน
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="regName">ชื่อ - นามสกุล</label>
+            <input type="text" class="form-control" id="regName" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="regEmail">อีเมล</label>
+            <input type="email" class="form-control" id="regEmail" required autocomplete="email">
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="regPassword">รหัสผ่าน (อย่างน้อย 8 ตัวอักษร)</label>
+            <input type="password" class="form-control" id="regPassword" required minlength="8" autocomplete="new-password">
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="regPassword2">ยืนยันรหัสผ่าน</label>
+            <input type="password" class="form-control" id="regPassword2" required minlength="8" autocomplete="new-password">
+          </div>
+          <button class="btn btn-primary w-100 py-2" type="submit"><i class="bi bi-person-plus me-2"></i>สมัครสมาชิก</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="js/login.js"></script>
+</body>
+</html>
