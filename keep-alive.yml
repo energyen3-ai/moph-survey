@@ -1,0 +1,22 @@
+# ปลุก Supabase ทุก 3 วัน เพื่อไม่ให้โปรเจกต์ฟรีถูกหยุดชั่วคราว (หยุดเมื่อไม่มีการใช้งาน 7 วัน)
+# ต้องตั้งค่า Secrets ใน GitHub: Settings > Secrets and variables > Actions
+#   SUPABASE_URL       เช่น https://abcdefgh.supabase.co
+#   SUPABASE_ANON_KEY  anon public key (หรือ Publishable key)
+name: Keep Supabase awake
+
+on:
+  schedule:
+    - cron: "17 2 */3 * *"   # ทุก 3 วัน เวลา 09:17 น. (เวลาไทย)
+  workflow_dispatch:          # กดรันเองได้ที่แท็บ Actions
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping database
+        run: |
+          curl --fail --silent --show-error \
+            -X POST "${{ secrets.SUPABASE_URL }}/rest/v1/rpc/ping" \
+            -H "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" \
+            -H "Content-Type: application/json" \
+            -d '{}'
